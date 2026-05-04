@@ -18,7 +18,8 @@ A web-based application that allows users to create their own anime series colle
 
 * Frontend: React.js
 * Styling: Tailwind CSS
-* Backend: Node.js / Express (if applicable)
+* Backend: Node.js / Express
+* DataBase: MongoDB
 
 
 ---
