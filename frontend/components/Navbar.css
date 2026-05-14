@@ -1,23 +1,24 @@
 .navbar {
   position: fixed;
-  top: 15px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 88%;
+
+  width: calc(100% - 20px);
   max-width: 1300px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 16px 32px;
+  padding: 14px 20px;
 
   background: rgba(20, 20, 20, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
+  border-radius: 18px;
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35),
@@ -34,7 +35,7 @@
 
 .logo {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
@@ -42,13 +43,18 @@
   background: linear-gradient(90deg, #ffffff, #bdbdbd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  flex-shrink: 0;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
+
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -57,10 +63,12 @@
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
 
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 
   transition: all 0.25s ease;
+
+  white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -89,7 +97,7 @@
 }
 
 .nav-links li:last-child a {
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-radius: 12px;
 
   background: white;
@@ -101,4 +109,56 @@
 .nav-links li:last-child a:hover {
   background: #eaeaea;
   transform: translateY(-2px);
+}
+
+/* ========================= */
+/* Mobile Responsive */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+    border-radius: 16px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .nav-links li:last-child a {
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    flex-direction: column;
+    gap: 14px;
+
+    padding: 14px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  .nav-links li:last-child a {
+    padding: 8px 10px;
+  }
 }
