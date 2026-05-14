@@ -16,7 +16,10 @@ function TitleUpload() {
     formdata.append("cover", file);
 
     try {
-      await axios.post("http://localhost:2005/uploadtitle", formdata);
+      await axios.post(
+        "https://animatrix-ay9w.onrender.com/uploadtitle",
+        formdata,
+      );
 
       setDescription("");
       setYear("");

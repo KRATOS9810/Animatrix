@@ -12,12 +12,14 @@ function AnimePage({ getTitle }) {
   const [currentVideo, setCurrentVideo] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:2005/episodes/${id}`).then((res) => {
-      setVideos(res.data);
-      console.log(res.data);
-      setCurrentVideo(res.data[0]);
-      // first video default
-    });
+    axios
+      .get(`https://animatrix-ay9w.onrender.com/episodes/${id}`)
+      .then((res) => {
+        setVideos(res.data);
+        console.log(res.data);
+        setCurrentVideo(res.data[0]);
+        // first video default
+      });
   }, [id]);
 
   return (

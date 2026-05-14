@@ -9,7 +9,9 @@ function Home({ getfilTitle, setTitle }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:2005/gettitles?search=${getfilTitle}`)
+      .get(
+        `https://animatrix-ay9w.onrender.com/gettitles?search=${getfilTitle}`,
+      )
       .then((response) => {
         setVidoes(response.data);
         console.log(response.data);

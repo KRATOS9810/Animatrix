@@ -19,7 +19,7 @@ function Upload() {
 
     try {
       const res = await axios.post(
-        `http://localhost:2005/upload/${id}`,
+        `https://animatrix-ay9w.onrender.com/upload/${id}`,
         formData,
       );
       setTitle("");
