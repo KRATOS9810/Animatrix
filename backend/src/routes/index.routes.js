@@ -4,20 +4,46 @@ import multer from "multer";
 import upload from "../middleware/index.mul.js";
 import Episode from "../models/Episode.js";
 import TitleCard from "../models/TItlecard.js";
+import cloudinary from "../middleware/index.cloudnary.js";
+import streamifier from "streamifier";
+
 route.get("/hi", (req, res) => {
   res.status(200).json({ message: "Hi" });
 });
+
+const uploadToCloudinary = (fileBuffer, folder, resourceType) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder,
+        resource_type: resourceType,
+      },
+      (error, result) => {
+        if (error) reject(error);
+        else resolve(result);
+      },
+    );
+
+    streamifier.createReadStream(fileBuffer).pipe(stream);
+  });
+};
 
 route.post("/uploadtitle", upload.single("cover"), async (req, res) => {
   const { title, description, genre, year } = req.body;
 
   try {
+    const coverUpload = await uploadToCloudinary(
+      req.file.buffer,
+      "anime/covers",
+      "image",
+    );
+
     const newTitleCard = new TitleCard({
       title,
       description,
       genre,
       year,
-      coverImage: `/covers/${req.file.filename}`,
+      coverImage: coverUpload.secure_url,
     });
     await newTitleCard.save();
 
@@ -31,18 +57,21 @@ route.post("/uploadtitle", upload.single("cover"), async (req, res) => {
 });
 route.post("/upload/:id", upload.single("video"), async (req, res) => {
   try {
+    const videoUpload = await uploadToCloudinary(
+      req.file.buffer,
+      "anime/videos",
+      "video",
+    );
     const newVideo = new Episode({
       titleId: req.params.id,
       title: req.body.title,
       episodeNumber: req.body.episodeNumber,
-      videoUrl: `/videos/${req.file.filename}`,
+      videoUrl: videoUpload.secure_url,
     });
     await newVideo.save();
 
     res.json({
       message: "Uploaded",
-      file: req.file,
-      path: req.videoUrl,
     });
   } catch (error) {
     res.status(500).json({ error: error.message }, console.log(error));

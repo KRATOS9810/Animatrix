@@ -8,7 +8,7 @@ const EpisodeSchema = new Schema({
     ref: "TitleCard",
   },
   title: String,
-  episodeNumber: Number,
+  episodeNumber: String,
   videoUrl: String,
 });
 

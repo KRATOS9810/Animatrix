@@ -12,14 +12,14 @@ function Home({ getfilTitle, setTitle }) {
       .get(`http://localhost:2005/gettitles?search=${getfilTitle}`)
       .then((response) => {
         setVidoes(response.data);
-        console.log(getfilTitle);
+        console.log(response.data);
       });
   }, [getfilTitle]);
 
   return (
     <div className="min-h-screen bg-gray-950 px-6 py-10">
-      <h1 className="text-4xl font-bold text-white text-center mb-10 mt-10">
-        All Series
+      <h1 className="text-4xl font-bold text-white text-center mb-10 mt-20 flex justify-center">
+        Animatrix
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 gap-8">
@@ -39,7 +39,7 @@ function Home({ getfilTitle, setTitle }) {
                   setTitle(video.title);
                 }}
                 className="w-full bg-black transition-transform duration-300 hover:scale-110 cursor-pointer"
-                src={`http://localhost:2005${video.coverImage}`}
+                src={`${video.coverImage}`}
               />
             </div>
           </div>

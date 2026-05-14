@@ -14,7 +14,9 @@ function AnimePage({ getTitle }) {
   useEffect(() => {
     axios.get(`http://localhost:2005/episodes/${id}`).then((res) => {
       setVideos(res.data);
-      setCurrentVideo(res.data[0]); // first video default
+      console.log(res.data);
+      setCurrentVideo(res.data[0]);
+      // first video default
     });
   }, [id]);
 
@@ -34,7 +36,7 @@ function AnimePage({ getTitle }) {
             <Plyr
               controls
               className="w-full rounded-xl"
-              src={`http://localhost:2005${currentVideo?.videoUrl}`}
+              src={`${currentVideo?.videoUrl}`}
             />
           </div>
         </div>

@@ -1,26 +1,104 @@
 .navbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  max-width: 1300px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
-  padding: 10px 20px;
-  position: fixed;
-  width: 90%;
-  left: 80px;
-  border-radius: 90px;
+
+  padding: 16px 32px;
+
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  background: rgba(25, 25, 25, 0.9);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .logo {
   color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #ffffff, #bdbdbd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 28px;
 }
 
 .nav-links a {
-  color: white;
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  background: white;
+  border-radius: 10px;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links li:last-child a {
+  padding: 10px 18px;
+  border-radius: 12px;
+
+  background: white;
+  color: black;
+
+  font-weight: 600;
+}
+
+.nav-links li:last-child a:hover {
+  background: #eaeaea;
+  transform: translateY(-2px);
 }
