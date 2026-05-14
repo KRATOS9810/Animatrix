@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 function Navbar({ setSearchEpisode }) {
   return (
     <>
@@ -15,13 +16,13 @@ function Navbar({ setSearchEpisode }) {
         ></input>
         <ul className="nav-links">
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="/uploadtitle">Upload Title</a>
+            <Link to="/uploadtitle">Upload Title</Link>
           </li>
         </ul>
       </nav>

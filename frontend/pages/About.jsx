@@ -2,7 +2,6 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white px-6 py-24">
       <div className="max-w-6xl mx-auto">
-        {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             About AnimeMatrix
@@ -16,9 +15,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Main Container */}
         <div className="bg-[#161616] border border-gray-800 rounded-3xl p-10 shadow-2xl">
-          {/* Creator */}
           <section className="mb-16">
             <h2 className="text-3xl font-semibold mb-5">👨‍💻 Created By</h2>
 
@@ -31,7 +28,6 @@ const About = () => {
             </p>
           </section>
 
-          {/* Purpose */}
           <section className="mb-16">
             <h2 className="text-3xl font-semibold mb-5">🎯 Project Vision</h2>
 
@@ -45,7 +41,6 @@ const About = () => {
             </p>
           </section>
 
-          {/* Tech Stack */}
           <section className="mb-16">
             <h2 className="text-3xl font-semibold mb-6">⚡ Tech Stack</h2>
 
@@ -70,7 +65,6 @@ const About = () => {
             </div>
           </section>
 
-          {/* Features */}
           <section className="mb-16">
             <h2 className="text-3xl font-semibold mb-5">✨ Core Features</h2>
 
@@ -95,7 +89,6 @@ const About = () => {
             </div>
           </section>
 
-          {/* Footer */}
           <section className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-500 text-lg">
               Built with code, creativity, and anime energy ⚡
